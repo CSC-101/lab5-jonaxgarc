@@ -4,6 +4,7 @@ from typing import Any
 
 # Representation of time as hours, minutes, and seconds
 class Time:
+
     # Initialize a new Point object.
     # input: hour as an int
     # input: minute as an int
@@ -13,7 +14,16 @@ class Time:
         self.minute = minute
         self.second = second
 
+    def __eq__(self, other: Any) -> bool:
+        if isinstance(other, Time):
+            return (self.hour == other.hour and
+                    self.minute == other.minute and
+                    self.second == other.second)
+        else:
+            return False
 
+    def __repr__(self):
+        return f"Time(hour={self.hour}, minute={self.minute}, second={self.second})"
     # Provide a developer-friendly string representation of the object.
     # input: Time for which a string representation is desired. 
     # output: string representation
